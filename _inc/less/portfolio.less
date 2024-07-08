@@ -1,0 +1,32 @@
+#portfolio {
+	position: relative; text-align: center; overflow: hidden;
+	.grid {
+		margin-top: 40px; padding: 1px 0; width: 100%; background: #000; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1px;
+		.project {
+			position: relative; padding-bottom: 70%; overflow: hidden;
+			a {
+				@offset: -10px;
+				display: block; position: absolute; top: @offset; right: @offset; bottom: @offset; left: @offset; background-position: 50% 5%; background-repeat: no-repeat; background-size: 110% auto; font-size: 0;
+				&:before {content: ''; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: rgba(0,0,0,.85); backdrop-filter: grayscale(1) blur(5px);}
+				//&:not(:hover,.active) {filter: grayscale(1) blur(5px);}
+				&:hover, &.active {
+					top: 0; right: 0; bottom: 0; left: 0; background-position: 50% 0; background-size: 100% auto;
+					&:before {opacity: 0;}
+				}
+			}
+		}
+	}
+}
+.project-details {
+	height: 100%; max-height: none;
+	.info, .preview {padding: 0;}
+	.info {text-align: left;}
+	.preview {background-position: 50% 0; background-repeat: no-repeat; background-size: cover; border: 1px solid #000; border-top: 0; border-bottom: 0;}
+	.wrapper {position: relative; padding: 50px 50px 0 0; width: 100%; max-width: 500px;}
+	.ctas {margin-top: 1em; text-align: right;}
+	&.open {bottom: 0;}
+}
+
+#resume {
+	text-align: left;
+}

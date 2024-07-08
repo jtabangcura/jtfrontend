@@ -1,0 +1,51 @@
+@import '_typography.less';
+@import 'header.less';
+@import 'page.less';
+@import 'portfolio.less';
+
+@green: #a9e250;
+
+.animate, .animate:before, .animate:after,
+.cta, .cta:before, .cta:after,
+button, button:before, button:after,
+a {
+  @animate: .3s linear;
+  transition: opacity @animate,
+              top @animate,
+              right @animate,
+              bottom @animate,
+              left @animate,
+              background @animate,
+              background-color @animate,
+              background-size @animate,
+              color @animate,
+              font-size @animate,
+              text-shadow @animate,
+              border-bottom-color @animate,
+              box-shadow @animate;
+}
+
+body {background: #FAF9F6;}
+
+section {padding: 80px 0; text-align: center;}
+
+.grid {display: grid;}
+
+button, a.cta {
+  position: relative; display: inline-block; padding: 5px 10px; background: transparent; color: #000; font-weight: 500; text-transform: uppercase; text-decoration: none; border: 0; box-shadow: 0 0 0 0 rgba(@green,0); cursor: pointer;
+  i {position: relative; z-index: -1;}
+  &:before, &:after {content: ''; display: block; position: absolute; top: 0; bottom: 0; left: 0;}
+  &:before {right: 100%; background: #000; z-index: -2;}
+  &:hover {
+    color: #fff; box-shadow: 10px 10px 0 0 @green;
+    &:before {right: 0;}
+  }
+}
+
+.lity {background: #fff;}
+.lity-container {width: 100%; height: 100%; max-width: 1440px;}
+.lity-content {
+  height: 100%;
+  &:after {box-shadow: none!important;}
+}
+.lity-close {display: none;}
