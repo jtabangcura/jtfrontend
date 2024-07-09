@@ -30,7 +30,7 @@ if ($portfolio->have_posts()) : ?>
 
 				<div class="project animate">
 
-					<a class="block animate" href="#<?php echo sanitize_title(get_the_title()) ?>" style="background-image:url('<?php the_post_thumbnail_url('2048X2048') ?>')" data-lity><?php the_title() ?></a>
+					<a class="block animate" href="#<?php echo sanitize_title(get_the_title()) ?>" style="background-image:url('<?php the_post_thumbnail_url('large') ?>')" data-lity><?php the_title() ?></a>
 
 					<div class="lity-hide">
 						<div id="<?php echo sanitize_title(get_the_title()) ?>" class="project-details d-md-flex align-items-stretch">
