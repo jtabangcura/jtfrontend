@@ -1,12 +1,28 @@
 <footer id="footer">
 	<div class="container">
-		<p>Copyright &copy;<?php echo date('Y') ?> Jensen Tabangcura; all rights reserved.<br>
-		The featured websites are copyright &copy;<?php echo date('Y') ?> to their respected owners.</p>
+
+		<?php
+		$social = get_field('jt_footer_sm','option');
+		if ($social) :?>
+			<ul id="sm" class="d-flex align-items-center justify-content-center">
+				<?php
+				foreach ($social as $sm)
+					echo '<li><a href="'.$sm['url'].'" target="_blank" class="animate">'.$sm['fa'].'<span>'.$sm['label'].'</span></a></li>' ?>
+			</ul>
+		<?php endif ?>
+
+		<?php the_field('jt_footer','option') ?>
+
 	</div>
 </footer>
 
 <script>
 jQuery(document).ready(function($) {
+
+	$('#nav-toggle').on('click',function(){
+		$(this).closest('#header').toggleClass('active');
+	});
+
 	$(window).scroll(function(){
 
     if ($(this).scrollTop() > 10) $('#header').addClass('lined');
@@ -16,6 +32,7 @@ jQuery(document).ready(function($) {
     else $('#header').removeClass('scrolled');
     
 	});
+
 });
 </script>
 

@@ -1,20 +1,45 @@
 #header {
-	position: fixed; top: 0; right: 0; left: 0; padding: 0 30px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: transparent; z-index: 10; backdrop-filter: grayscale(1) blur(3px);
+	position: fixed; top: 0; right: 0; left: 0; padding: 0 15px 0 0; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: transparent; z-index: 10;
 	a {font-weight: 400;}
-	.d-flex {height: 60px;}
+	.d-flex {height: 70px;}
+	.container {max-width: 1440px;}
 	#menu-nav {
 		display: flex; align-items: center; justify-content: center; gap: 40px;
+		@media (max-width: 991px) {
+			position: absolute; top: 100%; right: 0; left: 100%; display: block; padding: 15px 30px; background: #000; text-align: right; box-shadow: 15px 15px 0 0 @green; z-index: -10;
+			a {color: #fff; box-shadow: none!important; white-space: nowrap;}
+		}
 	}
 	#logo {
 		position: relative;
 		a {
 			position: absolute; bottom: 100%; display: inline-block; font-size: .8em; letter-spacing: 0; white-space: nowrap;
 			span {display: block;}
-			.big {font-size: 2.03em; font-weight: 700; line-height: 1em; letter-spacing: .1em;}
+			.big {font-size: 2.03em; font-weight: 700; line-height: 1em; letter-spacing: .103em;}
+			&:hover {
+				color: #000; letter-spacing: .05em;
+				.big {letter-spacing: .165em;}
+			}
 		}
 	}
-	&.lined {background: rgba(#fff,.95); border-bottom-color: #000;}
-	&.scrolled {
-		#logo a {bottom: 7px;}
+	&.active {
+		#nav-toggle {transform: rotate(90deg);}
+		#menu-nav {left: 30px;}
+	}
+	&.lined, &.active {background: rgba(#fff,.95); border-bottom-color: #000; backdrop-filter: grayscale(1) blur(3px);}
+	&.scrolled, &.active {
+		#logo a {bottom: 12px;}
+	}
+}
+
+#nav-toggle {
+	position: absolute; top: 13px; right: 30px; font-size: 2em;
+	a {
+		display: block; color: #000; cursor: pointer;
+		span {font-size: 0;}
+		&:hover {color: @green;}
+	}
+	@media (min-width: 992px) {
+		display: none;
 	}
 }

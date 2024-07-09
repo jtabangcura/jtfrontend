@@ -1,5 +1,7 @@
+@import '_form.less';
 @import '_typography.less';
 @import 'header.less';
+@import 'footer.less';
 @import 'page.less';
 @import 'portfolio.less';
 
@@ -8,7 +10,11 @@
 .animate, .animate:before, .animate:after,
 .cta, .cta:before, .cta:after,
 button, button:before, button:after,
-a {
+input, input:before, input:after,
+a, a:before, a:after,
+textarea,
+#menu-nav,
+::placeholder {
   @animate: .3s linear;
   transition: opacity @animate,
               top @animate,
@@ -20,20 +26,24 @@ a {
               background-size @animate,
               color @animate,
               font-size @animate,
+              letter-spacing @animate,
               text-shadow @animate,
               border-bottom-color @animate,
-              box-shadow @animate;
+              box-shadow @animate,
+              transform @animate;
 }
 
-body {background: #FAF9F6;}
+body {background: #FAF9F6; padding-right: 10px; border-left: 10px solid @green;}
 
 section {padding: 80px 0; text-align: center;}
 
 .grid {display: grid;}
 
-button, a.cta {
+button, a.cta, #menu-nav a, #sm a {
   position: relative; display: inline-block; padding: 5px 10px; background: transparent; color: #000; font-weight: 500; text-transform: uppercase; text-decoration: none; border: 0; box-shadow: 0 0 0 0 rgba(@green,0); cursor: pointer;
   i {position: relative; z-index: -1;}
+  &::-moz-selection {background: transparent; color: inherit;}
+  &::selection {background: transparent; color: inherit;}
   &:before, &:after {content: ''; display: block; position: absolute; top: 0; bottom: 0; left: 0;}
   &:before {right: 100%; background: #000; z-index: -2;}
   &:hover {
@@ -42,7 +52,10 @@ button, a.cta {
   }
 }
 
+hr {margin: 0 auto; max-width: 300px;}
+
 .lity {background: #fff;}
+.lity-wrap {overflow-y: auto;}
 .lity-container {width: 100%; height: 100%; max-width: 1440px;}
 .lity-content {
   height: 100%;

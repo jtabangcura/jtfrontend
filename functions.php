@@ -28,6 +28,12 @@ function register_my_menus() {
  }
  add_action( 'init', 'register_my_menus' );
 
+//current year shortcode
+function currentYear() {
+    return date('Y');
+}
+add_shortcode('current_year', 'currentYear');
+
 // Remove tags support from posts
 function myprefix_unregister_tags() {
     unregister_taxonomy_for_object_type('post_tag', 'post');

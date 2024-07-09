@@ -1,0 +1,16 @@
+.wpforms-container {
+	margin: 40px auto 0 auto; max-width: 700px;
+	.wpforms-field {
+		margin: 0!important; padding: 0!important;
+		input, textarea {
+			padding: 10px; border: 1px solid #000!important; box-shadow: 0 0 0 0 rgba(@green,0); outline: 0!important;
+			&::placeholder {color: rgba(0,0,0,.3);}
+			&:focus-visible {
+				box-shadow: 10px 10px 0 0 @green;
+				&::placeholder {color: transparent;}
+			}
+		}
+		+ .wpforms-field {margin-top: 15px!important;}
+	}
+}
+.wpforms-submit-container {margin-top: 40px;}

@@ -1,13 +1,22 @@
 #portfolio {
-	position: relative; text-align: center; overflow: hidden;
+	position: relative; margin-right: -10px; text-align: center; overflow: hidden;
 	.grid {
 		margin-top: 40px; padding: 1px 0; width: 100%; background: #000; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1px;
+		@media (max-width: 1199px) {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+		@media (max-width: 991px) {
+			grid-template-columns: 1fr 1fr;
+		}
+		@media (max-width: 575px) {
+			grid-template-columns: 1fr;
+		}
 		.project {
-			position: relative; padding-bottom: 70%; overflow: hidden;
+			position: relative; top: 0; right: 0; bottom: 0; left: 0; padding-bottom: 70%; overflow: hidden;
 			a {
 				@offset: -10px;
 				display: block; position: absolute; top: @offset; right: @offset; bottom: @offset; left: @offset; background-position: 50% 5%; background-repeat: no-repeat; background-size: 110% auto; font-size: 0;
-				&:before {content: ''; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: rgba(0,0,0,.85); backdrop-filter: grayscale(1) blur(5px);}
+				&:before {content: ''; display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: rgba(0,0,0,.65); backdrop-filter: grayscale(1);}
 				//&:not(:hover,.active) {filter: grayscale(1) blur(5px);}
 				&:hover, &.active {
 					top: 0; right: 0; bottom: 0; left: 0; background-position: 50% 0; background-size: 100% auto;
@@ -22,11 +31,16 @@
 	.info, .preview {padding: 0;}
 	.info {text-align: left;}
 	.preview {background-position: 50% 0; background-repeat: no-repeat; background-size: cover; border: 1px solid #000; border-top: 0; border-bottom: 0;}
-	.wrapper {position: relative; padding: 50px 50px 0 0; width: 100%; max-width: 500px;}
+	.wrapper {position: relative; padding: 50px 50px 50px 30px; width: 100%;}
 	.ctas {margin-top: 1em; text-align: right;}
 	&.open {bottom: 0;}
-}
-
-#resume {
-	text-align: left;
+	@media (min-width: 768px) {
+		.info {order: 1;}
+		.preview {order: 2;}
+		.wrapper {max-width: 500px;}
+	}
+	@media (max-width: 767px) {
+		.preview {padding-bottom: calc(calc(3/5)*100%); border: 1px solid #000; border-top: 0; border-right: 0; border-left: 0;}
+		.wrapper {padding-right: 30px;}
+	}
 }

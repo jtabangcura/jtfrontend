@@ -24,20 +24,31 @@
 
 <div id="top"></div>
 
-<header id="header">
-	<div class="d-flex align-items-stretch justify-content-between">
-		<div id="logo">
-			<a href="#top">
-				<span class="big"><?php bloginfo('name') ?></span>
-				<span><?php bloginfo('description') ?></span>
-			</a>
+<header id="header" class="animate">
+	<div class="container">
+
+		<div id="nav-toggle" class="animate">
+			<a><i class="fa-solid fa-ellipsis-vertical"></i><span>Menu</span></a>
 		</div>
-		<?php
-			wp_nav_menu(
-			  array(
-			    'theme_location' => 'header-menu',
-			    'container' => '',
-			  )
-			) ?>
+
+		<div class="d-flex align-items-stretch justify-content-between">
+
+			<div id="logo">
+				<a href="<?php bloginfo('home') ?>#top">
+					<span class="big animate"><?php bloginfo('name') ?></span>
+					<span><?php bloginfo('description') ?></span>
+				</a>
+			</div>
+
+			<?php
+				wp_nav_menu(
+				  array(
+				    'theme_location' => 'header-menu',
+				    'container' => '',
+				  )
+				) ?>
+
+		</div>
+
 	</div>
 </header>
