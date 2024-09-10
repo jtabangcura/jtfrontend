@@ -39,11 +39,18 @@ if ($portfolio->have_posts()) : ?>
 
 							<div class="col-md-6 info d-md-flex justify-content-end">
 								<div class="wrapper">
+
 									<h6><?php the_time('Y') ?></h6>
+
 									<h3><a href="<?php the_field('jt_project_url') ?>" target="_blank" rel="nofollow"><?php the_title() ?><i class="fa-solid fa-arrow-up-right-from-square"></i></a></h3>
+
+									<?php if (get_field('jt_project_github')) echo '<div class="github"><a href="'.get_field('jt_project_github').'" title="View on GitHub" target="_blank"><i class="fa-brands fa-github"></i></a></div>' ?>
+
 									<h5>Features</h5>
 									<?php the_content() ?>
+
 									<div class="ctas"><button data-lity-close>Exit <i class="fa-regular fa-circle-xmark"></i></button></div>
+
 								</div>
 							</div>
 
