@@ -13,6 +13,15 @@
 
 		<?php the_field('jt_footer','option') ?>
 
+		<?php
+			$last = new WP_query(array('post_type'=>array('page','post'),'posts_per_page'=>1,'orderby'=>'modified','order'=>'desc'));
+			if ($last->have_posts()) :
+				while ($last->have_posts()) : $last->the_post();
+					echo '<p><em>last modified '.get_the_modified_time('F j, Y').'</p>';
+				endwhile;
+			endif
+		?>
+
 	</div>
 </footer>
 
